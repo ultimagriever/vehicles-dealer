@@ -1,0 +1,86 @@
+.stores, .direct-sales {
+  background: yellow;
+}
+
+.stores > .row, .vehicles > .row {
+  margin-bottom: 15px;
+  background: green;
+}
+
+.direct-sales > .row {
+  margin: 0px -15px;
+}
+
+.direct-sales > .row {
+  background: green;
+}
+
+.stores .img,
+.direct-sales .img,
+.vehicles .img {
+  background: red;
+}
+
+.stores .img img, .direct-sales .img img {
+  width: 100%;
+  height: 100%;
+}
+
+.vehicles .img img {
+  width: 100%;
+  height: 100%;
+}
+
+.stores .desc,
+.direct-sales .desc,
+.vehicles .desc {
+  font-size: 4vw;
+  background: grey;
+  padding: 15px !important;
+}
+
+.stores .badges {
+  padding: 15px !important;
+}
+
+.stores a {
+  width: 100%;
+}
+
+.stores .badges > div > div {
+  width: 100%;
+  background: red;
+  padding: 1%;
+}
+
+.stores .badges img {
+  width: 100%;
+}
+
+.home .buttons {
+  background: green;
+}
+
+html, body, #root, .App, .container, .home {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.home .carousel {
+  background: red;
+  flex-grow: 1;
+  height: calc(100% - 265px);;
+}
+
+.home .buttons > div > div {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  background: blue;
+  font-size: 4vw;
+}
+
+.home .buttons > div > div a {
+  color: white;
+}
