@@ -4,18 +4,45 @@ import Routes from './routes';
 import './App.css';
 
 class App extends Component {
+
+  state = {
+    menuOpened: false
+  }
+
+  openMenu() {
+    this.setState({
+      menuOpened: !this.state.menuOpened
+    });
+  }
+
+  closeMenu() {
+    this.setState({
+      menuOpened: false
+    });
+  }
+
+  renderMenu() {
+    if (!this.state.menuOpened) {
+      return '';
+    } else {
+      return (
+        <div className="menu">
+          <ul>
+            <li onClick={this.closeMenu.bind(this)}><Link to="./">Home</Link></li>
+            <li onClick={this.closeMenu.bind(this)}><Link to="./vehicles">Vehicles</Link></li>
+            <li onClick={this.closeMenu.bind(this)}><Link to="./stores">Stores</Link></li>
+            <li onClick={this.closeMenu.bind(this)}><Link to="./direct-sales">Direct Sales</Link></li>
+          </ul>
+        </div>
+      )
+    }
+  }
+
   render() {
     return (
       <div className="App">
-        <nav className="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-          <span className="navbar-brand">Vehicles Dealer</span>
-          <ul className="navbar-nav">
-            <li className="nav-item"><Link to="./" className="nav-link">Home</Link></li>
-            <li className="nav-item"><Link to="./vehicles" className="nav-link">Vehicles</Link></li>
-            <li className="nav-item"><Link to="./stores" className="nav-link">Stores</Link></li>
-            <li className="nav-item"><Link to="./direct-sales" className="nav-link">Direct Sales</Link></li>
-          </ul>
-        </nav>
+        <div className="header" onClick={this.openMenu.bind(this)}>Vehicles Dealer</div>
+        { this.renderMenu() }
         <Routes />
       </div>
     );

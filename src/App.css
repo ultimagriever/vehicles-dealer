@@ -1,3 +1,11 @@
+
+
+.menu {
+  position: fixed;
+  top:45px;
+  z-index: 1;
+}
+
 .stores, .direct-sales {
   background: yellow;
 }
@@ -61,6 +69,10 @@
   background: green;
 }
 
+body {
+  background: red;
+}
+
 html, body, #root, .App, .container, .home {
   height: 100%;
   display: flex;
@@ -70,7 +82,6 @@ html, body, #root, .App, .container, .home {
 .home .carousel {
   background: red;
   flex-grow: 1;
-  height: calc(100% - 265px);;
 }
 
 .home .buttons > div > div {
@@ -78,9 +89,42 @@ html, body, #root, .App, .container, .home {
   height: 50px;
   text-align: center;
   background: blue;
-  font-size: 4vw;
+  font-size: 15px;
 }
 
 .home .buttons > div > div a {
   color: white;
+}
+
+.header {
+  background: blue;
+  height: 45px;
+  min-height: 45px; /* Fix */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0px 15px;
+}
+
+.menu {
+  width: 80%;
+  background: green;
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px
+}
+
+.menu ul li {
+  height: 45px;
+  padding: 0px 15px;
+  border-bottom: 1px solid #060;
+  display: flex;
+  align-items: center;
+}
+
+.menu a {
+  color: #fff;
 }
