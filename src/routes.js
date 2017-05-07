@@ -6,7 +6,7 @@ import StoresIndex from './components/stores/index';
 import DirectSalesIndex from './components/direct-sales/index';
 
 const Routes = () => (
-  <div className="container">
+  <div className="container-fluid">
     <Switch>
       <Route exact path="/" component={HomeIndex} />
       <Route exact path="/vehicles" component={VehiclesIndex} />

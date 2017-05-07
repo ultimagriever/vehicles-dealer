@@ -6,7 +6,9 @@ class DirectSalesIndex extends Component {
     directSales: [
       'Taxis',
       'Frotistas',
-      'Produtor Rural'
+      'Locadoras',
+      'Produtor Rural',
+      'Pessoas com Necessidades Especiais',
     ]
   }
 

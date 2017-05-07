@@ -1,8 +1,14 @@
+body {
+  background: purple !important;
+}
 
+.row {
+  background: green;
+}
 
 .menu {
   position: fixed;
-  top:45px;
+  top: 45px;
   z-index: 1;
 }
 
@@ -12,7 +18,6 @@
 
 .stores > .row, .vehicles > .row {
   margin-bottom: 15px;
-  background: green;
 }
 
 .direct-sales > .row {
@@ -73,20 +78,34 @@ body {
   background: red;
 }
 
-html, body, #root, .App, .container, .home {
+.container-fluid {
+  background: teal;
+}
+
+html, body, #root, .App {
   height: 100%;
-  display: flex;
+/*  display: flex;
   flex-direction: column;
+*/}
+
+.container-fluid {
+  height: calc(100% - 45px);
+}
+
+.home {
+  height: 100%;
 }
 
 .home .carousel {
   background: red;
-  flex-grow: 1;
+  margin: 0 -15px;
+  height: calc(100% - 50px);
 }
 
 .home .buttons > div > div {
   width: 100%;
   height: 50px;
+  margin: 0px -15px;
   text-align: center;
   background: blue;
   font-size: 15px;
@@ -99,7 +118,6 @@ html, body, #root, .App, .container, .home {
 .header {
   background: blue;
   height: 45px;
-  min-height: 45px; /* Fix */
   color: #fff;
   display: flex;
   align-items: center;
