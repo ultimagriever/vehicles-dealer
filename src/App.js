@@ -43,7 +43,9 @@ class App extends Component {
       <div className="App">
         <div className="header" onClick={this.openMenu.bind(this)}>Vehicles Dealer</div>
         { this.renderMenu() }
-        <Routes />
+        <div className="container-fluid">
+          <Routes />
+        </div>
       </div>
     );
   }
