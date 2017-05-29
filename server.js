@@ -1,13 +1,23 @@
-const express = require('express');
-const path = require('path');
+import Express from 'express';
+import path from 'path';
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import { StaticRouter } from 'react-router';
+import App from './src/App';
 
-const app = express();
-app.use(express.static(path.resolve(__dirname, 'build')));
-app.set('views', path.resolve(__dirname, 'build'));
-app.set('view engine', 'ejs');
+const server = new Express();
+server.use(Express.static(path.resolve(__dirname, 'build')));
+server.set('views', path.resolve(__dirname, 'build'));
+server.set('view engine', 'ejs');
 
-app.get('*', function(req, res, next) {
-  res.render('index', { reactApp: 'supposedly server-side rendering' });
+server.get('*', function(req, res, next) {
+  const html = renderToString(
+    <StaticRouter location={req.url} context={{}}>
+      <App />
+    </StaticRouter>
+  );
+
+  res.render('index', { html });
 });
 
-app.listen(3333, () => console.log('Express listening on port 3333'));
+server.listen(3333, () => console.log('Express listening on port 3333'));
