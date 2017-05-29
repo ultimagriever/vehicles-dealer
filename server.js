@@ -10,6 +10,15 @@ server.use(Express.static(path.resolve(__dirname, 'build')));
 server.set('views', path.resolve(__dirname, 'build'));
 server.set('view engine', 'ejs');
 
+
+server.get('/api/stores', function (req, res, next) {
+  res.send([
+    'Vergueiro',
+    'São Bernardo do Campo',
+    'Ibirapuera'
+  ]);
+});
+
 server.get('*', function(req, res, next) {
   const html = renderToString(
     <StaticRouter location={req.url} context={{}}>

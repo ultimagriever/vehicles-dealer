@@ -1,22 +1,26 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getStores } from '../../actions/storeActions';
 
 class StoresIndex extends Component {
-
-  state = {
-    stores: [
-      'Vergueiro',
-      'São Bernardo do Campo',
-      'Ibirapuera'
-    ]
+  componentWillMount() {
+    this.props.getStores();
   }
 
   render() {
     return (
       <div className="stores">
         <h2>Stores</h2>
-
-
-        {this.state.stores.map((store) => (
+        {
+          this.props.loading && (
+            <div className="row">
+              <div className="col-12">
+                <h3>Loading</h3>
+              </div>
+            </div>
+          )
+        }
+        {this.props.stores.map((store) => (
           <div className="row no-gutters" key={store}>
             <div className="col-6 img"><img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=200%C3%97200&w=200&h=200" /></div>
             <div className="col-6 desc">{store}</div>
@@ -40,4 +44,11 @@ class StoresIndex extends Component {
   }
 }
 
-export default StoresIndex;
+function mapStateToProps(state) {
+  return {
+    stores: state.stores.all,
+    loading: state.stores.loading
+  }
+}
+
+export default connect(mapStateToProps, { getStores })(StoresIndex);
