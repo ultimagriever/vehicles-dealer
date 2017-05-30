@@ -3,8 +3,8 @@ import { combineReducers } from 'redux';
 export default combineReducers({
   all: function (state = [], action) {
     switch (action.type) {
-      case 'STORE_FETCH_ALL':
-        console.log('reducer - all');
+      case 'OTHER_FETCH_ALL':
+        console.log('OTHER reducer - all');
         return action.payload;
       default:
         return state;
@@ -12,9 +12,9 @@ export default combineReducers({
   },
   loading: function (state = false, action) {
     switch (action.type) {
-      case 'STORE_LOADING':
+      case 'OTHER_LOADING':
         return true;
-      case 'STORE_FETCH_ALL':
+      case 'OTHER_FETCH_ALL':
         return false;
       default:
         return state;
